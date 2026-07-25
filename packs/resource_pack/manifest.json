@@ -1,0 +1,38 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "Shift & Fade Resources v1.0.0",
+    "description": "Dark cinematic particles and PBR compatibility for Shift & Fade.",
+    "uuid": "63db4617-cd29-4522-a834-a69f3338ca75",
+    "version": [
+      1,
+      0,
+      0
+    ],
+    "min_engine_version": [
+      1,
+      26,
+      30
+    ]
+  },
+  "metadata": {
+    "product_type": "addon",
+    "authors": [
+      "AresgettaYT"
+    ]
+  },
+  "modules": [
+    {
+      "type": "resources",
+      "uuid": "1537178e-2398-4203-ac73-51cdac6d59a8",
+      "version": [
+        1,
+        0,
+        0
+      ]
+    }
+  ],
+  "capabilities": [
+    "pbr"
+  ]
+}
