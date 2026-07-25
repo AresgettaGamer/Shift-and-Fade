@@ -1,2 +1,98 @@
-# Shift-and-Fade
-Cinematic teleport animations and a public integration SDK for Minecraft Bedrock.
+# Shift & Fade
+
+![Shift & Fade cover](media/shift_and_fade_cover.png)
+
+**Shift & Fade** adds cinematic teleport transitions to Minecraft Bedrock Edition and exposes a lightweight integration API for other add-ons.
+
+## Requirements
+
+- Minecraft Bedrock **1.26.30 or newer**
+- Behavior Pack and Resource Pack enabled
+- Cheats enabled only when using the public `/sf:*` commands
+- No experimental toggles required
+
+## Teleport styles
+
+### Grand
+The camera rises vertically above the player, travels toward the destination, hides unloaded distance with a black fade when needed, then approaches and descends at the destination.
+
+### Twilight
+The camera orbits the player while dark fragments simulate a dissolve effect. The teleport occurs behind a black fade, followed by a reverse rebuild effect at the destination.
+
+### Auto
+- Grand for same-dimension teleports up to 1,000 horizontal blocks.
+- Twilight for longer same-dimension teleports.
+
+## Commands
+
+```mcfunction
+/sf:tp <x y z> [auto|grand|twilight]
+/sf:send <players> <x y z> [auto|grand|twilight]
+/sf:reset [players]
+```
+
+`/sf:tp` can be used by any player when cheats are enabled. `/sf:send` and `/sf:reset` require operator-level permissions.
+
+Minecraft may report that the command leaf `tp` is already used by the vanilla command. This is informational: always run the fully namespaced command `/sf:tp`.
+
+## API / SDK
+
+Copy `sdk/shift_fade_sdk.js` into the add-on that owns the teleport logic. Do not import Shift & Fade's internal runtime files.
+
+```js
+import {
+    requestShiftFadeTeleport,
+    waitForShiftFadeAcceptance,
+    waitForShiftFadeCompletion,
+} from "./shift_fade_sdk.js";
+
+const requestId = requestShiftFadeTeleport(player, destination, {
+    style: "auto",
+    source: "my_addon:waystone",
+    teleportNearbyTamed: true,
+});
+
+const accepted = await waitForShiftFadeAcceptance(player, requestId);
+if (accepted === "accepted" || accepted === "completed") {
+    // Apply your cost/cooldown here.
+}
+
+const result = await waitForShiftFadeCompletion(player, requestId);
+```
+
+The integrating add-on remains responsible for permissions, costs, cooldowns, menus, messages, and deciding when a teleport is allowed.
+
+See [docs/API.md](docs/API.md) for the full protocol.
+
+## Limitations
+
+- Shift & Fade does **not** replace or automatically intercept the vanilla `/tp` command.
+- Animated transitions currently support destinations in the player's current dimension.
+- Cross-dimension requests should use the integrating add-on's normal teleport flow.
+- Camera travel near the render-distance edge may briefly request additional terrain and can produce a small local hitch on lower-powered devices.
+
+## Vibrant Visuals
+
+The Resource Pack declares the `pbr` capability so it does not disable Vibrant Visuals-compatible resource packs.
+
+## Building
+
+Run:
+
+```bash
+python tools/build.py
+```
+
+The generated `.mcpack` and `.mcaddon` files are written to `dist/`.
+
+## License
+
+Shift & Fade is licensed under the [MIT License](LICENSE).
+
+## Credits
+
+Created by **AresgettaYT**.
+
+The project was conceptually inspired by the cinematic presentation of the Java Edition projects Grand Teleport and Twilight Teleport. Shift & Fade contains its own Bedrock implementation and original assets; it does not include their source code or assets.
+
+Minecraft is a trademark of Microsoft. This project is not affiliated with or endorsed by Mojang Studios or Microsoft.
