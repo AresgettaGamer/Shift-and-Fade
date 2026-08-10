@@ -144,6 +144,73 @@ Animated teleport plays
 Original add-on completes its normal logic
 ```
 
+The original teleport should always remain available as a **fallback**.
+
+If Shift & Fade is not installed, rejects the request, or fails to respond, the other add-on should continue using its original teleport behavior whenever possible.
+
+This means installing Shift & Fade should enhance another add-on without making that add-on dependent on it to function.
+
+---
+
+### Example
+
+Imagine a Waystone add-on normally contains something similar to:
+
+```js
+player.teleport(destination);
+```
+
+Instead of simply replacing everything around it, the integration should first understand how that Waystone system works.
+
+For example, it may also:
+
+- Check whether the player has enough levels
+- Find nearby pets
+- Apply a cooldown
+- Display a message
+- Play sounds
+- Store Waystone information
+
+Those systems should remain intact.
+
+Only the actual teleport step should be connected to the Shift & Fade SDK.
+
+---
+
+## 🧠 AI Integration Prompt
+
+If you use ChatGPT or another coding assistant, you can copy the prompt below and provide it together with:
+
+- The add-on you want to modify
+- The Shift & Fade SDK ZIP
+
+The coding assistant should inspect both before making any changes.
+
+> **Tip:** Make a backup of the original add-on and test the modified version in a copy of your world first.
+
+---
+
+## ⚠️ Third-party add-ons and permissions
+
+Shift & Fade does **not** distribute modified versions, compatibility patches, or source code from third-party add-ons.
+
+The SDK is provided so developers and users can create integrations themselves.
+
+Before modifying another add-on, check its license, permissions, and terms to make sure you are allowed to modify it.
+
+Do not redistribute a modified third-party add-on unless its license or author explicitly allows you to do so.
+
+Shift & Fade's SDK does not grant permission to modify or redistribute someone else's work.
+
+---
+
+### Quick version
+
+If you do not want to write a detailed request, upload both files to ChatGPT and say:
+
+> I want to add Shift & Fade compatibility to this Minecraft Bedrock add-on. I attached both the add-on and the official Shift & Fade SDK. Read the SDK documentation and analyze how the add-on currently performs its teleport. Integrate Shift & Fade only into that teleport system, preserve all existing features, and keep the original teleport as a fallback if Shift & Fade is unavailable. Do not modify unrelated systems. When finished, give me the modified installable add-on and explain what you changed.
+
+
 ## License
 
 Shift & Fade is licensed under the [MIT License](LICENSE).
