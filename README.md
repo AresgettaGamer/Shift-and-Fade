@@ -85,6 +85,64 @@ python tools/build.py
 
 The generated `.mcpack` and `.mcaddon` files are written to `dist/`.
 
+## 🤖 Don't know how to code? AI-assisted integration
+
+You do not need to be an experienced JavaScript developer to integrate Shift & Fade with another Minecraft Bedrock add-on.
+
+If you want a Waystone, Home, Warp, Fast Travel, Portal, or any other teleport system to use Shift & Fade animations, you can use the **Shift & Fade SDK** included in this repository.
+
+If you are not familiar with the Minecraft Bedrock Script API, you can also use a coding assistant such as **ChatGPT** to help perform the integration.
+
+### What do I need?
+
+Provide your coding assistant with:
+
+1. The **Behavior Pack** of the add-on you want to integrate (`.mcpack`, `.mcaddon`, `.zip`, or its source folder).
+2. The **Shift & Fade SDK ZIP** from this repository.
+3. Tell it which feature performs the teleport, such as:
+   - Waystones
+   - Homes
+   - Warps
+   - Fast Travel
+   - Portals
+   - Teleport items
+   - Admin menus
+4. Give it the integration prompt provided below.
+
+The SDK contains the protocol and examples required to request an animated teleport from Shift & Fade.
+
+You do **not** need to modify the Shift & Fade runtime itself.
+
+The add-on being integrated should keep control of its own systems, including things such as:
+
+- Teleport permissions
+- Experience or currency costs
+- Cooldowns
+- Messages
+- Waypoint storage
+- Pets or additional entities
+- Menus and UI
+- Validation and restrictions
+
+Shift & Fade should only take control of the **teleport transition itself**.
+
+### Recommended integration behavior
+
+A good integration should work approximately like this:
+
+```text
+Player requests teleport
+        ↓
+Original add-on validates the teleport
+        ↓
+Original add-on asks Shift & Fade to perform the transition
+        ↓
+Shift & Fade accepts the request
+        ↓
+Animated teleport plays
+        ↓
+Original add-on completes its normal logic
+
 ## License
 
 Shift & Fade is licensed under the [MIT License](LICENSE).
