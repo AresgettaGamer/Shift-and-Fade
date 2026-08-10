@@ -130,7 +130,6 @@ Shift & Fade should only take control of the **teleport transition itself**.
 
 A good integration should work approximately like this:
 
-```text
 Player requests teleport
         ↓
 Original add-on validates the teleport
