@@ -130,6 +130,7 @@ Shift & Fade should only take control of the **teleport transition itself**.
 
 A good integration should work approximately like this:
 
+```text
 Player requests teleport
         ↓
 Original add-on validates the teleport
@@ -141,6 +142,7 @@ Shift & Fade accepts the request
 Animated teleport plays
         ↓
 Original add-on completes its normal logic
+```
 
 ## License
 
