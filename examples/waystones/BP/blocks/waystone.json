@@ -1,0 +1,222 @@
+{
+  "format_version": "1.26.40",
+  "minecraft:block": {
+    "description": {
+      "identifier": "shift_fade_waystones:waystone",
+      "traits": {
+        "minecraft:placement_direction": {
+          "enabled_states": [
+            "minecraft:cardinal_direction"
+          ]
+        },
+        "minecraft:multi_block": {
+          "enabled_states": [
+            "minecraft:multi_block_part"
+          ],
+          "parts": 2,
+          "direction": "up"
+        }
+      },
+      "states": {
+        "shift_fade_waystones:natural": [
+          false,
+          true
+        ],
+        "shift_fade_waystones:activated": [
+          true,
+          false
+        ]
+      }
+    },
+    "components": {
+      "minecraft:display_name": "tile.shift_fade_waystones:waystone.name",
+      "minecraft:geometry": "geometry.sfw_waystone_bottom",
+      "minecraft:material_instances": {
+        "*": {
+          "texture": "sfw_waystone_stone",
+          "render_method": "alpha_test"
+        },
+        "stone": {
+          "texture": "sfw_waystone_stone",
+          "render_method": "alpha_test"
+        },
+        "rune": {
+          "texture": "sfw_waystone_rune",
+          "render_method": "alpha_test"
+        }
+      },
+      "minecraft:movable": {
+        "movement_type": "immovable"
+      },
+      "minecraft:destructible_by_mining": {
+        "seconds_to_destroy": 3.5
+      },
+      "minecraft:destructible_by_explosion": {
+        "explosion_resistance": 1200
+      },
+      "minecraft:light_emission": 5,
+      "minecraft:light_dampening": 15,
+      "minecraft:map_color": "#40345F",
+      "minecraft:loot": "loot_tables/blocks/waystone.json",
+      "minecraft:collision_box": {
+        "origin": [
+          -6,
+          0,
+          -6
+        ],
+        "size": [
+          12,
+          16,
+          12
+        ]
+      },
+      "minecraft:selection_box": {
+        "origin": [
+          -6,
+          0,
+          -6
+        ],
+        "size": [
+          12,
+          16,
+          12
+        ]
+      },
+      "minecraft:tags": [
+        "minecraft:is_pickaxe_item_destructible"
+      ]
+    },
+    "permutations": [
+      {
+        "condition": "q.block_state('minecraft:multi_block_part') == 0",
+        "components": {
+          "minecraft:geometry": "geometry.sfw_waystone_bottom",
+          "minecraft:collision_box": {
+            "origin": [
+              -6,
+              0,
+              -6
+            ],
+            "size": [
+              12,
+              16,
+              12
+            ]
+          },
+          "minecraft:selection_box": {
+            "origin": [
+              -6,
+              0,
+              -6
+            ],
+            "size": [
+              12,
+              16,
+              12
+            ]
+          },
+          "minecraft:light_emission": 4
+        }
+      },
+      {
+        "condition": "q.block_state('minecraft:multi_block_part') == 1",
+        "components": {
+          "minecraft:geometry": "geometry.sfw_waystone_top",
+          "minecraft:collision_box": {
+            "origin": [
+              -4,
+              0,
+              -4
+            ],
+            "size": [
+              8,
+              16,
+              8
+            ]
+          },
+          "minecraft:selection_box": {
+            "origin": [
+              -6,
+              0,
+              -6
+            ],
+            "size": [
+              12,
+              16,
+              12
+            ]
+          },
+          "minecraft:light_emission": 7
+        }
+      },
+      {
+        "condition": "q.block_state('minecraft:cardinal_direction') == 'north'",
+        "components": {
+          "minecraft:transformation": {
+            "rotation": [
+              0,
+              0,
+              0
+            ]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('minecraft:cardinal_direction') == 'south'",
+        "components": {
+          "minecraft:transformation": {
+            "rotation": [
+              0,
+              180,
+              0
+            ]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('minecraft:cardinal_direction') == 'west'",
+        "components": {
+          "minecraft:transformation": {
+            "rotation": [
+              0,
+              90,
+              0
+            ]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('minecraft:cardinal_direction') == 'east'",
+        "components": {
+          "minecraft:transformation": {
+            "rotation": [
+              0,
+              270,
+              0
+            ]
+          }
+        }
+      },
+      {
+        "condition": "q.block_state('shift_fade_waystones:activated') == false",
+        "components": {
+          "minecraft:material_instances": {
+            "*": {
+              "texture": "sfw_waystone_stone",
+              "render_method": "alpha_test"
+            },
+            "stone": {
+              "texture": "sfw_waystone_stone",
+              "render_method": "alpha_test"
+            },
+            "rune": {
+              "texture": "sfw_waystone_stone",
+              "render_method": "alpha_test"
+            }
+          },
+          "minecraft:light_emission": 0
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "format_version": "1.21.0",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "shift_fade_waystones:teleport_pad_pair"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "SRS",
+      "OEO",
+      "SSS"
+    ],
+    "key": {
+      "S": {
+        "item": "minecraft:smooth_stone"
+      },
+      "R": {
+        "item": "minecraft:redstone"
+      },
+      "O": {
+        "item": "minecraft:obsidian"
+      },
+      "E": {
+        "item": "minecraft:ender_pearl"
+      }
+    },
+    "result": {
+      "item": "shift_fade_waystones:teleport_pad",
+      "count": 2
+    },
+    "unlock": [
+      {
+        "item": "minecraft:ender_pearl"
+      }
+    ]
+  }
+}

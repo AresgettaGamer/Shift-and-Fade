@@ -1,0 +1,39 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "shift_fade_waystones:waystone"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      "SAS",
+      "OEO",
+      "SSS"
+    ],
+    "key": {
+      "S": {
+        "item": "minecraft:stone_bricks"
+      },
+      "A": {
+        "item": "minecraft:amethyst_shard"
+      },
+      "O": {
+        "item": "minecraft:obsidian"
+      },
+      "E": {
+        "item": "minecraft:ender_pearl"
+      }
+    },
+    "result": {
+      "item": "shift_fade_waystones:waystone",
+      "count": 1
+    },
+    "unlock": [
+      {
+        "item": "minecraft:ender_pearl"
+      }
+    ]
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "format_version": "1.21.100",
+  "minecraft:item": {
+    "description": {
+      "identifier": "shift_fade_waystones:waystone",
+      "menu_category": {
+        "category": "construction"
+      }
+    },
+    "components": {
+      "minecraft:display_name": {
+        "value": "item.shift_fade_waystones:waystone"
+      },
+      "minecraft:icon": {
+        "textures": {
+          "default": "sfw_waystone_item"
+        }
+      },
+      "minecraft:block_placer": {
+        "block": "shift_fade_waystones:waystone",
+        "replace_block_item": true
+      },
+      "minecraft:max_stack_size": 64
+    }
+  }
+}

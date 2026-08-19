@@ -1,0 +1,28 @@
+{
+  "format_version": "1.21.20",
+  "minecraft:template_pool": {
+    "description": {
+      "identifier": "shift_fade_waystones:natural_waystone/start"
+    },
+    "elements": [
+      {
+        "weight": 3,
+        "element": {
+          "element_type": "minecraft:single_pool_element",
+          "location": "shift_fade_waystones/natural/waystone_shrine",
+          "processors": "shift_fade_waystones:empty",
+          "projection": "rigid"
+        }
+      },
+      {
+        "weight": 2,
+        "element": {
+          "element_type": "minecraft:single_pool_element",
+          "location": "shift_fade_waystones/natural/waystone_ruin",
+          "processors": "shift_fade_waystones:empty",
+          "projection": "rigid"
+        }
+      }
+    ]
+  }
+}

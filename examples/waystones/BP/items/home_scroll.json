@@ -1,0 +1,29 @@
+{
+  "format_version": "1.21.90",
+  "minecraft:item": {
+    "description": {
+      "identifier": "shift_fade_waystones:home_scroll",
+      "menu_category": {
+        "category": "equipment"
+      }
+    },
+    "components": {
+      "minecraft:display_name": {
+        "value": "item.shift_fade_waystones:home_scroll"
+      },
+      "minecraft:icon": "sfw_home_scroll",
+      "minecraft:max_stack_size": 16,
+      "minecraft:use_modifiers": {
+        "movement_modifier": 1.0,
+        "use_duration": 0.1
+      },
+      "minecraft:use_animation": {
+        "value": "block"
+      },
+      "minecraft:cooldown": {
+        "category": "shift_fade_waystones:home_scroll",
+        "duration": 0.35
+      }
+    }
+  }
+}

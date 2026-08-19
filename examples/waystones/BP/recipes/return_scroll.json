@@ -1,0 +1,36 @@
+{
+  "format_version": "1.20.10",
+  "minecraft:recipe_shaped": {
+    "description": {
+      "identifier": "shift_fade_waystones:return_scroll"
+    },
+    "tags": [
+      "crafting_table"
+    ],
+    "pattern": [
+      " P ",
+      "ECE",
+      " P "
+    ],
+    "key": {
+      "P": {
+        "item": "minecraft:paper"
+      },
+      "E": {
+        "item": "minecraft:ender_pearl"
+      },
+      "C": {
+        "item": "minecraft:compass"
+      }
+    },
+    "result": {
+      "item": "shift_fade_waystones:return_scroll",
+      "count": 1
+    },
+    "unlock": [
+      {
+        "item": "minecraft:ender_pearl"
+      }
+    ]
+  }
+}

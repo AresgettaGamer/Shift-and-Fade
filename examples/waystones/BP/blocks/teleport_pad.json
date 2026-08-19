@@ -1,0 +1,83 @@
+{
+  "format_version": "1.26.40",
+  "minecraft:block": {
+    "description": {
+      "identifier": "shift_fade_waystones:teleport_pad",
+      "menu_category": {
+        "category": "construction"
+      }
+    },
+    "components": {
+      "minecraft:display_name": "tile.shift_fade_waystones:teleport_pad.name",
+      "minecraft:geometry": "geometry.sfw_teleport_pad",
+      "minecraft:material_instances": {
+        "*": {
+          "texture": "sfw_teleport_pad_stone",
+          "render_method": "alpha_test"
+        },
+        "stone": {
+          "texture": "sfw_teleport_pad_stone",
+          "render_method": "alpha_test"
+        },
+        "rune": {
+          "texture": "sfw_teleport_pad_rune",
+          "render_method": "alpha_test"
+        }
+      },
+      "minecraft:item_visual": {
+        "geometry": "geometry.sfw_teleport_pad",
+        "material_instances": {
+          "*": {
+            "texture": "sfw_teleport_pad_stone",
+            "render_method": "alpha_test"
+          },
+          "stone": {
+            "texture": "sfw_teleport_pad_stone",
+            "render_method": "alpha_test"
+          },
+          "rune": {
+            "texture": "sfw_teleport_pad_rune",
+            "render_method": "alpha_test"
+          }
+        }
+      },
+      "minecraft:collision_box": {
+        "origin": [
+          -7,
+          0,
+          -7
+        ],
+        "size": [
+          14,
+          2,
+          14
+        ]
+      },
+      "minecraft:selection_box": {
+        "origin": [
+          -7,
+          0,
+          -7
+        ],
+        "size": [
+          14,
+          2,
+          14
+        ]
+      },
+      "minecraft:destructible_by_mining": {
+        "seconds_to_destroy": 1.5
+      },
+      "minecraft:destructible_by_explosion": {
+        "explosion_resistance": 1200
+      },
+      "minecraft:light_emission": 7,
+      "minecraft:light_dampening": 0,
+      "minecraft:map_color": "#51426E",
+      "minecraft:loot": "loot_tables/blocks/teleport_pad.json",
+      "minecraft:tags": [
+        "minecraft:is_pickaxe_item_destructible"
+      ]
+    }
+  }
+}

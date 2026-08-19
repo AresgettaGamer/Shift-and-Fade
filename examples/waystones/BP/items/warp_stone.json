@@ -1,0 +1,29 @@
+{
+  "format_version": "1.21.90",
+  "minecraft:item": {
+    "description": {
+      "identifier": "shift_fade_waystones:warp_stone",
+      "menu_category": {
+        "category": "equipment"
+      }
+    },
+    "components": {
+      "minecraft:display_name": {
+        "value": "item.shift_fade_waystones:warp_stone"
+      },
+      "minecraft:icon": "sfw_warp_stone",
+      "minecraft:max_stack_size": 1,
+      "minecraft:use_modifiers": {
+        "movement_modifier": 1.0,
+        "use_duration": 0.1
+      },
+      "minecraft:use_animation": {
+        "value": "block"
+      },
+      "minecraft:cooldown": {
+        "category": "shift_fade_waystones:warp_stone",
+        "duration": 0.35
+      }
+    }
+  }
+}

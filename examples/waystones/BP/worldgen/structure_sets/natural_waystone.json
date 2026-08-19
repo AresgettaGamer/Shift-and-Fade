@@ -1,0 +1,21 @@
+{
+  "format_version": "1.21.20",
+  "minecraft:structure_set": {
+    "description": {
+      "identifier": "shift_fade_waystones:natural_waystone"
+    },
+    "placement": {
+      "type": "minecraft:random_spread",
+      "salt": 17012007,
+      "separation": 20,
+      "spacing": 64,
+      "spread_type": "linear"
+    },
+    "structures": [
+      {
+        "structure": "shift_fade_waystones:natural_waystone",
+        "weight": 1
+      }
+    ]
+  }
+}

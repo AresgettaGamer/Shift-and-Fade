@@ -1,0 +1,44 @@
+{
+  "format_version": "1.21.20",
+  "minecraft:jigsaw": {
+    "description": {
+      "identifier": "shift_fade_waystones:natural_waystone"
+    },
+    "biome_filters": [
+      {
+        "all_of": [
+          {
+            "test": "has_biome_tag",
+            "operator": "==",
+            "value": "overworld"
+          },
+          {
+            "test": "has_biome_tag",
+            "operator": "!=",
+            "value": "ocean"
+          },
+          {
+            "test": "has_biome_tag",
+            "operator": "!=",
+            "value": "river"
+          }
+        ]
+      }
+    ],
+    "step": "surface_structures",
+    "terrain_adaptation": "beard_thin",
+    "start_pool": "shift_fade_waystones:natural_waystone/start",
+    "max_depth": 1,
+    "max_distance_from_center": {
+      "horizontal": 16,
+      "vertical": 8
+    },
+    "start_height": {
+      "type": "constant",
+      "value": {
+        "absolute": 0
+      }
+    },
+    "heightmap_projection": "world_surface"
+  }
+}
