@@ -1,0 +1,57 @@
+{
+  "format_version": "1.14.0",
+  "sound_definitions": {
+    "sfw.waystone.interact": {
+      "category": "block",
+      "sounds": [
+        "sounds/sfw/waystone/interact_1",
+        "sounds/sfw/waystone/interact_2",
+        "sounds/sfw/waystone/interact_3"
+      ]
+    },
+    "sfw.waystone.discovered": {
+      "category": "player",
+      "sounds": [
+        {
+          "name": "sounds/sfw/waystone/discovered_1",
+          "volume": 1.0
+        },
+        {
+          "name": "sounds/sfw/waystone/discovered_2",
+          "volume": 1.0
+        },
+        {
+          "name": "sounds/sfw/waystone/discovered_3",
+          "volume": 1.0
+        },
+        {
+          "name": "sounds/sfw/waystone/discovered_4",
+          "volume": 1.0
+        }
+      ]
+    },
+    "sfw.scroll.use": {
+      "category": "player",
+      "sounds": [
+        "sounds/sfw/scroll/use_1",
+        "sounds/sfw/scroll/use_2"
+      ]
+    },
+    "sfw.warp_stone.use": {
+      "category": "player",
+      "sounds": [
+        "sounds/sfw/warp_stone/use_1",
+        "sounds/sfw/warp_stone/use_2"
+      ]
+    },
+    "sfw.teleport_pad.ambient": {
+      "category": "block",
+      "sounds": [
+        {
+          "name": "sounds/sfw/teleport_pad/use_1",
+          "volume": 1.0
+        }
+      ]
+    }
+  }
+}

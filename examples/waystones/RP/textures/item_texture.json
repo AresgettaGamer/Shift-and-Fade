@@ -1,0 +1,21 @@
+{
+  "resource_pack_name": "Shift Fade Waystones",
+  "texture_name": "atlas.items",
+  "texture_data": {
+    "sfw_warp_stone": {
+      "textures": "textures/items/sfw_warp_stone"
+    },
+    "sfw_return_scroll": {
+      "textures": "textures/items/sfw_return_scroll"
+    },
+    "sfw_death_scroll": {
+      "textures": "textures/items/sfw_death_scroll"
+    },
+    "sfw_home_scroll": {
+      "textures": "textures/items/sfw_home_scroll"
+    },
+    "sfw_waystone_item": {
+      "textures": "textures/items/sfw_waystone_item"
+    }
+  }
+}

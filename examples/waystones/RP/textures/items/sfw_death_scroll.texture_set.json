@@ -1,0 +1,8 @@
+{
+  "format_version": "1.16.100",
+  "minecraft:texture_set": {
+    "color": "sfw_death_scroll",
+    "metalness_emissive_roughness": "sfw_death_scroll_mer",
+    "normal": "sfw_death_scroll_normal"
+  }
+}

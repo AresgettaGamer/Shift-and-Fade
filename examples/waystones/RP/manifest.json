@@ -1,0 +1,38 @@
+{
+  "format_version": 2,
+  "header": {
+    "name": "Shift & Fade: Waystones Resources v1.0.0",
+    "description": "pack.description",
+    "uuid": "5b849377-6d86-47e1-8f76-178bb19534d2",
+    "version": [
+      1,
+      0,
+      0
+    ],
+    "min_engine_version": [
+      1,
+      26,
+      40
+    ]
+  },
+  "metadata": {
+    "product_type": "addon",
+    "authors": [
+      "AresgettaYT"
+    ]
+  },
+  "modules": [
+    {
+      "type": "resources",
+      "uuid": "7ff7003b-9c6e-495c-9c9c-4aef8102c07e",
+      "version": [
+        1,
+        0,
+        0
+      ]
+    }
+  ],
+  "capabilities": [
+    "pbr"
+  ]
+}
