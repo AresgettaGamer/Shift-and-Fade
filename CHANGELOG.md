@@ -1,46 +1,48 @@
-# Changelog
+# Shift & Fade — Changelog
 
-## v1.0.0 — Public Release
+## Release v2.0.0
 
-- Promotes the approved Release Candidate to the first public release.
-- Replaces the temporary project artwork with the final Shift & Fade cover.
-- Updates the minimum supported game version to Minecraft Bedrock 1.26.30, matching `@minecraft/server` 2.8.0.
-- Publishes the standalone commands and protocol v1 SDK.
-- Keeps the tested cinematic runtime unchanged.
+Release v2.0.0 promotes the fully validated Beta v1.2.6 Core without redesigning the approved teleport runtime.
 
-## RC v0.3.0 — Public Candidate
+### Added / finalized
+- Public Protocol v2 SDK with cross-dimension destinations.
+- Robust companion transport:
+  - same-dimension Safe Arrival path;
+  - cross-dimension persistent Structure Transit with rollback-safe staging/restoration;
+  - nearby tamed companions and explicit `companionEntityIds`.
+- Final Grand cinematic audio pass:
+  - rise cue;
+  - horizontal transition cue(s);
+  - arrival/descent cue;
+  - camera-path-relative sound positioning so free-camera distance does not attenuate late cues.
+- Final Twilight departure and arrival/rebuild audio variant pools.
+- Focused Content Log warnings for custom cinematic sound playback failures.
 
-- Removed the test item, test menu, and predefined test destinations.
-- Added `/sf:tp`, `/sf:send`, and `/sf:reset`.
-- Separated runtime, commands, and external API modules.
-- Added public `shift_fade:request` protocol support.
-- Added dark Twilight particles.
-- Removed the `@minecraft/server-ui` dependency.
+### Validated
+- Eight-wolf Structure Transit stress routes across Overworld, Nether and The End, including Nether -> Overworld returns.
+- Shift & Fade: Waystones consumer integration through the same public Protocol v2 SDK used by third-party add-ons.
+- Grand and Twilight cinematic transitions, including the final audio pass.
+- Better on Bedrock compatibility bridge remains available for existing private integrations.
 
-## Beta v0.2.0 — Integration
+### Compatibility
+- Protocol v1 remains supported for same-dimension integrations.
+- Protocol v2 is the recommended public API.
+- The integrating add-on remains responsible for gameplay rules, costs, cooldowns, UI and waypoint storage.
+- Shift & Fade owns the cinematic transition and requested companion transport after acceptance.
 
-- Added the first tested Waystone integration.
-- Added PBR/Vibrant Visuals compatibility.
-- Preserved costs, cooldowns, messages, sounds, and nearby tamed-entity transport in the private server integration.
+### Release packaging
+- Manifest, modules and BP/RP dependency promoted to `2.0.0`.
+- Visible Beta labels removed.
+- English and Spanish README files included in source.
+- Public SDK and Protocol v2 API documentation included in source.
+- MIT license included.
 
-## Beta v0.1.3 — Approved Core
+## Beta v1.2.6
+- Camera-path-relative Grand audio fixed transition/arrival attenuation.
+- Grand Up begins one tick into motion.
+- Transition follows horizontal camera runs.
+- Down follows arrival descent.
+- No Grand camera timing, teleport timing or Structure Transit logic changed.
 
-- Added continuous 64-block visible Grand travel on departure and arrival.
-- Simplified the final Twilight camera return.
-- Renamed the project to Shift & Fade.
-
-## Beta v0.1.2
-
-- Rebuilt Grand ascent/descent as strictly vertical stages.
-- Added terrain-aware Twilight orbit selection.
-- Fixed custom destination forms and particle Molang errors.
-
-## Beta v0.1.1
-
-- Replaced spline spirals with staged camera movement and circular Twilight orbits.
-- Fixed the controller icon and deprecated item components used by the test build.
-
-## Beta v0.1.0 — Prototype
-
-- First Grand and Twilight teleport animation prototypes.
-- Added destination preloading, camera/input recovery, particles, and fallback teleport behavior.
+## Beta v1.2.2
+- Structure Transit companion architecture frozen after multi-dimension stress validation.

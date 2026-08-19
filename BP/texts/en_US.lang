@@ -1,0 +1,5 @@
+shift_fade.command.description.tp=Teleports you with a Shift & Fade transition.
+shift_fade.command.description.dimtp=Teleports you to another dimension with a Shift & Fade transition.
+shift_fade.command.description.send=Sends selected players to a destination with Shift & Fade.
+shift_fade.command.description.mode=Gets or changes the world-wide Shift & Fade style preference.
+shift_fade.command.description.reset=Restores Shift & Fade camera and input controls.

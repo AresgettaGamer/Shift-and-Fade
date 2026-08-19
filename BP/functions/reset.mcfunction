@@ -1,0 +1,1 @@
+scriptevent shift_fade:reset

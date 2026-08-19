@@ -1,23 +1,48 @@
-# API de Shift & Fade — Protocolo v1
+# API de Shift & Fade — Protocol v2
 
-Shift & Fade recibe solicitudes mediante `system.sendScriptEvent` con el ID `shift_fade:request`. Se recomienda copiar `sdk/shift_fade_sdk.js` al addon integrador.
+Shift & Fade expone una API de teletransporte mediante Script Events. Los addons externos
+deben copiar `sdk/shift_fade_sdk.js` y usarlo en vez de importar archivos internos del runtime.
 
-## Flujo recomendado
+## Solicitud
 
-1. Validar permisos, destino y costo.
-2. Enviar la solicitud.
-3. Esperar el estado `accepted` antes de cobrar o activar cooldown.
-4. Esperar `completed` antes del mensaje final.
-5. Ante `failed` o timeout, usar el TP original cuando corresponda.
+Evento: `shift_fade:request`
 
-## Estados
+Protocol v2 acepta:
 
-- `sf_ack_<requestId>`: aceptada.
-- `sf_done_<requestId>`: terminada.
-- `sf_fail_<requestId>`: rechazada o fallida.
+- `requestId`: identificador corto generado por el addon.
+- `playerId` o `playerName`: jugador objetivo.
+- `x`, `y`, `z`: coordenadas destino.
+- `sourceDimensionId`: dimensión actual esperada.
+- `targetDimensionId` / `dimensionId`: dimensión destino.
+- `style`: `auto`, `grand` o `twilight`.
+- `exactY`: respeta exactamente la Y enviada.
+- `silent`: suprime feedback opcional de la integración.
+- `fallbackOnError`: permite al Core usar su fallback interno tras aceptar.
+- `teleportNearbyTamed`: solicita transportar mascotas domesticadas cercanas.
+- `companionRadius`: 1..32 bloques, 10 por defecto.
+- `companionEntityIds`: hasta 16 IDs explícitos de entidades cargadas.
+- `source`: identificador corto de la integración.
+- `soundId` / `animationId`: metadata opcional.
 
-## Responsabilidades
+## Tags de respuesta
 
-Shift & Fade controla la cámara y el TP dentro de la misma dimensión. El addon integrador controla permisos, costos, cooldowns, menús, destinos guardados y cambios de dimensión.
+El SDK observa tags temporales sobre el jugador:
 
-Consulta `API.md` para la tabla completa del payload.
+- `sf_ack_<requestId>` — aceptada.
+- `sf_done_<requestId>` — completada.
+- `sf_fail_<requestId>` — fallida.
+
+Usa `waitForShiftFadeAcceptance()` antes de cobrar costes y
+`waitForShiftFadeCompletion()` cuando necesites confirmar la llegada.
+
+## Límite de responsabilidad
+
+El addon integrador conserva permisos, costes, cooldowns, menús, almacenamiento de destinos,
+mensajes y reglas de gameplay. Shift & Fade controla la transición cinematográfica y,
+cuando se solicita, el transporte de acompañantes.
+
+Para viajes dimensionales de mascotas, Release v2.0.0 usa Structure Transit persistente
+internamente. El consumidor no debe ejecutar un segundo traslado de mascotas después de que
+Core acepte la solicitud.
+
+Protocol v1 continúa disponible para compatibilidad dentro de la misma dimensión.

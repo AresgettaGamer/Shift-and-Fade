@@ -1,0 +1,60 @@
+{
+    "format_version": 2,
+    "header": {
+        "name": "Shift & Fade",
+        "description": "Cinematic teleport transitions and public Protocol v2 SDK.",
+        "uuid": "f053f834-d8f0-4d38-a820-94943e2d50fb",
+        "version": [
+            2,
+            0,
+            0
+        ],
+        "min_engine_version": [
+            1,
+            26,
+            30
+        ]
+    },
+    "metadata": {
+        "product_type": "addon",
+        "authors": [
+            "AresgettaYT"
+        ]
+    },
+    "modules": [
+        {
+            "type": "data",
+            "uuid": "494f483b-9fa2-4597-9671-69bcaef66d8f",
+            "version": [
+                2,
+                0,
+                0
+            ]
+        },
+        {
+            "type": "script",
+            "language": "javascript",
+            "uuid": "026bd143-29d1-4d22-bc46-41891c90c616",
+            "entry": "scripts/main.js",
+            "version": [
+                2,
+                0,
+                0
+            ]
+        }
+    ],
+    "dependencies": [
+        {
+            "uuid": "63db4617-cd29-4522-a834-a69f3338ca75",
+            "version": [
+                2,
+                0,
+                0
+            ]
+        },
+        {
+            "module_name": "@minecraft/server",
+            "version": "2.8.0"
+        }
+    ]
+}

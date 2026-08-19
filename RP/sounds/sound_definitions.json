@@ -1,0 +1,40 @@
+{
+  "format_version": "1.14.0",
+  "sound_definitions": {
+    "shift_fade.grand.up": {
+      "category": "player",
+      "sounds": [
+        "sounds/aresgetta/shift_fade/grand/up"
+      ]
+    },
+    "shift_fade.grand.transition": {
+      "category": "player",
+      "sounds": [
+        "sounds/aresgetta/shift_fade/grand/transition"
+      ]
+    },
+    "shift_fade.grand.down": {
+      "category": "player",
+      "sounds": [
+        "sounds/aresgetta/shift_fade/grand/down"
+      ]
+    },
+    "shift_fade.twilight.travel": {
+      "category": "player",
+      "sounds": [
+        "sounds/aresgetta/shift_fade/twilight/travel/variant1",
+        "sounds/aresgetta/shift_fade/twilight/travel/variant2",
+        "sounds/aresgetta/shift_fade/twilight/travel/variant3"
+      ]
+    },
+    "shift_fade.twilight.arrival": {
+      "category": "player",
+      "sounds": [
+        "sounds/aresgetta/shift_fade/twilight/arrival/variant1",
+        "sounds/aresgetta/shift_fade/twilight/arrival/variant2",
+        "sounds/aresgetta/shift_fade/twilight/arrival/variant3",
+        "sounds/aresgetta/shift_fade/twilight/arrival/variant4"
+      ]
+    }
+  }
+}

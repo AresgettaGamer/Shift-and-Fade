@@ -1,0 +1,5 @@
+shift_fade.command.description.tp=Te teletransporta con una transición de Shift & Fade.
+shift_fade.command.description.dimtp=Te teletransporta a otra dimensión con una transición de Shift & Fade.
+shift_fade.command.description.send=Envía a los jugadores seleccionados a un destino con Shift & Fade.
+shift_fade.command.description.mode=Consulta o cambia la preferencia global de estilo de Shift & Fade.
+shift_fade.command.description.reset=Restaura la cámara y los controles de Shift & Fade.

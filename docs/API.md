@@ -1,71 +1,48 @@
-# Shift & Fade API — Protocol v1
+# Shift & Fade Protocol v2 API
 
-Shift & Fade receives requests through `system.sendScriptEvent` using the event ID:
+Shift & Fade exposes a script-event based teleport API. Third-party add-ons should copy
+`sdk/shift_fade_sdk.js` and use it instead of importing runtime internals.
 
-```text
-shift_fade:request
-```
+## Request
 
-Use the provided `sdk/shift_fade_sdk.js` helper instead of constructing payloads manually whenever possible.
+Event: `shift_fade:request`
 
-## Request payload
+Protocol v2 accepts:
 
-```json
-{
-  "version": 1,
-  "requestId": "unique_id",
-  "playerId": "runtime-player-id",
-  "x": 120,
-  "y": 70,
-  "z": -350,
-  "dimensionId": "minecraft:overworld",
-  "style": "auto",
-  "exactY": true,
-  "silent": true,
-  "fallbackOnError": true,
-  "teleportNearbyTamed": false,
-  "source": "my_addon:waystone",
-  "soundId": "namespace:sound",
-  "animationId": "namespace:animation"
-}
-```
+- `requestId`: short caller-generated request id.
+- `playerId` or `playerName`: player to teleport.
+- `x`, `y`, `z`: target coordinates.
+- `sourceDimensionId`: expected current dimension.
+- `targetDimensionId` / `dimensionId`: destination dimension.
+- `style`: `auto`, `grand`, or `twilight`.
+- `exactY`: whether the supplied Y must be respected.
+- `silent`: suppresses Shift & Fade's optional integration feedback.
+- `fallbackOnError`: allows Core to perform its internal fallback after acceptance.
+- `teleportNearbyTamed`: requests nearby tamed-companion transport.
+- `companionRadius`: 1..32 blocks, default 10.
+- `companionEntityIds`: up to 16 explicit loaded entity ids.
+- `source`: short integration identifier.
+- `soundId` / `animationId`: optional integration metadata.
 
-## Fields
+## Response tags
 
-| Field | Required | Description |
-|---|---:|---|
-| `version` | Recommended | Protocol version. Current value: `1`. |
-| `requestId` | Yes | Up to 32 alphanumeric, `_`, or `-` characters. |
-| `playerId` | Yes | Runtime ID of the target player. |
-| `x`, `y`, `z` | Yes | Destination coordinates. |
-| `dimensionId` | Yes | Must match the player's current dimension. |
-| `style` | No | `auto`, `grand`, or `twilight`. |
-| `exactY` | No | Use the supplied Y coordinate. Defaults to `true` in the SDK. |
-| `silent` | No | Suppress normal Shift & Fade chat messages. |
-| `fallbackOnError` | No | Run a normal teleport if the animation fails. |
-| `teleportNearbyTamed` | No | Move nearby tamed entities with the player. |
-| `source` | No | Identifier used for diagnostics/integration context. |
-| `soundId` | No | Optional sound played after teleport. |
-| `animationId` | No | Optional player animation played after teleport. |
+The SDK observes short-lived tags on the player:
 
-## Response states
+- `sf_ack_<requestId>` — accepted.
+- `sf_done_<requestId>` — completed.
+- `sf_fail_<requestId>` — failed.
 
-Shift & Fade communicates through temporary player tags:
+Use `waitForShiftFadeAcceptance()` before charging costs, then
+`waitForShiftFadeCompletion()` if the caller needs confirmed arrival.
 
-- `sf_ack_<requestId>` — request accepted.
-- `sf_done_<requestId>` — transition completed.
-- `sf_fail_<requestId>` — request rejected or failed.
+## Ownership boundary
 
-These tags are temporary. Poll them immediately using the SDK helpers.
+The integrating add-on owns permissions, costs, cooldowns, menus, waypoint storage,
+messages and gameplay rules. Shift & Fade owns the cinematic transition and, when
+requested, companion transport.
 
-## Recommended integration flow
+For cross-dimension companion travel, Release v2.0.0 uses persistent Structure Transit
+internally. Consumers must not implement a second companion handoff after Core accepts
+the request.
 
-1. Validate permissions, destination, and costs in your add-on.
-2. Send the Shift & Fade request.
-3. Wait for `accepted` before consuming resources or starting cooldowns.
-4. Wait for `completed` before showing the final success message.
-5. If the request is `failed` or times out, run your original teleport fallback when appropriate.
-
-## Responsibility boundary
-
-Shift & Fade owns the camera transition and actual same-dimension teleport. The integrating add-on owns gameplay rules, permissions, costs, cooldowns, UI, saved destinations, and cross-dimension behavior.
+Protocol v1 remains supported for same-dimension compatibility.
